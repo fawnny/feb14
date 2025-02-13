@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine? 💖</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+        h1 {
+            color: white;
+            font-size: 2.5em;
+        }
+        .buttons {
+            margin-top: 20px;
+            position: relative;
+        }
+        button {
+            font-size: 1.5em;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.06s;
+        }
+        #yes {
+            background-color: red;
+            color: white;
+        }
+        #no {
+            background-color: white;
+            color: red;
+            position: absolute;
+        }
+        .meme, .fireworks {
+            display: none;
+            width: 550px;
+            height: auto;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Can I be your Valentine? 💘</h1>
+    <div class="buttons">
+        <button id="yes" onclick="accept()">Yes ❤️</button>
+        <button id="no" onclick="showMeme()" onmouseover="moveButton()">No 💔</button>
+    </div>
+
+    <img id="meme" class="meme" src="" alt="Sad Meme">
+    <img id="fireworks" class="fireworks" src="https://i.pinimg.com/736x/56/cd/79/56cd798e4234a8b50f613a5cde42c72f.jpg" alt="Fireworks">
+
+    <script>
+        let memeCount = 0;
+        const memes = [
+	    "https://media1.tenor.com/m/-iiMZcIHkE8AAAAd/sad-emoji.gif",
+	    "https://slidechef.net/wp-content/uploads/2024/11/sad-man-meme.jpg",
+	    "https://static.wikia.nocookie.net/0e9418e5-bf6c-4353-8702-5b7ec0b56a52/scale-to-width/755",
+            "https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84e1fa5e074035d6d7a7328184",
+	    "https://media.tenor.com/Gy56ldrDlxIAAAAM/stan-twitter-meme.gif",
+	    "https://i.pinimg.com/736x/8d/df/05/8ddf0528b0ce1a49f0eb56d59341e7fb.jpg",
+	    "https://media0.giphy.com/media/98MaHVwJOmWMz4cz1K/200w.gif?cid=6c09b952lo7jxjmy1d3l5z0epqugygvjm2y0fay28qk2e5ol&ep=v1_gifs_search&rid=200w.gif&ct=g",
+	    "https://preview.redd.it/pbuh8yev9hd91.gif?width=600&auto=webp&s=b8e46f72bc83675681d32510b261b85a3ff124b3",
+	    "https://i.pinimg.com/736x/ef/44/51/ef4451f912107f00e450d320a52fde54.jpg"
+
+        ];
+
+        function accept() {
+	    document.getElementById("meme").style.display = "none";
+            document.getElementById("fireworks").style.display = "block";
+            document.querySelector(".buttons").style.display = "none";
+            document.querySelector("h1").innerText = "YAY! 🎆 Happy Valentine's Day! ❤️";
+        }
+
+        function moveButton() {
+            let button = document.getElementById("no");
+            let moveX = Math.random() * 50 - 25; // Move slightly left/right
+            let moveY = Math.random() * 50 - 25; // Move slightly up/down
+            let currentX = button.offsetLeft;
+            let currentY = button.offsetTop;
+            button.style.left = (currentX + moveX) + "px";
+            button.style.top = (currentY + moveY) + "px";
+        }
+
+        function showMeme() {
+            if (memeCount < memes.length) {
+                let memeImg = document.getElementById("meme");
+                memeImg.src = memes[memeCount];
+                memeImg.style.display = "block";
+                memeCount++;
+            } else {
+                alert("Please say yes... 😭💔");
+            }
+        }
+    </script>
+
+</body>
+</html>
